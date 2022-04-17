@@ -20,7 +20,7 @@ urlpatterns = [
     path('v1/auth/', include('djoser.urls')),
     path('v1/auth/', include('djoser.urls.jwt')),
     path(
-        'v1/jwt/create/', 
+        'v1/jwt/create/',
         TokenObtainPairView.as_view(), name='token_obtain_pair'
     ),
     path('v1/jwt/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
