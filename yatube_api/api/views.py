@@ -9,7 +9,7 @@ from .permissions import IsAuthorOrReadOnly
 from .serializers import (CommentSerializer, FollowSerializer, GroupSerializer,
                           PostSerializer)
 
-from posts.models import Group, Post, User
+from posts.models import Group, Post
 
 
 class GroupViewSet(viewsets.ModelViewSet):
@@ -61,7 +61,7 @@ class FollowViewSet(viewsets.ModelViewSet):
     serializer_class = FollowSerializer
     filter_backends = [filters.SearchFilter]
     search_fields = ['user__username', 'following__username']
-    
+
     def get_queryset(self):
         queryset = self.request.user.follower.all()
         return queryset
